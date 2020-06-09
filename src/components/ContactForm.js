@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ContactForm() {
+  const [inputName, setInputName] = useState({
+    inputField: "",
+  });
+
+  const handleInput = (event) => {
+    setInputName({
+      inputField: event.target.value,
+    });
+  };
+
   return (
     <div>
-      <h1>Hello i am a temporary form now i'm edited again</h1>
+      <form className="text-center">
+        <input
+          type="text"
+          value={inputName.inputField}
+          onChange={handleInput}
+        />
+        <h1>Text being typed: {inputName.inputField}</h1>
+        <h1>This form should be at the bottom of the page</h1>
+      </form>
     </div>
   );
 }
