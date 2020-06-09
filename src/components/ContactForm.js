@@ -12,13 +12,20 @@ export default function ContactForm() {
   };
 
   return (
-    <div>
+    <div className="sticky my-3 py-10">
       <form className="text-center">
         <input
           type="text"
           value={inputName.inputField}
           onChange={handleInput}
         />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <h1>Text being typed: {inputName.inputField}</h1>
         <h1>This form should be at the bottom of the page</h1>
       </form>
