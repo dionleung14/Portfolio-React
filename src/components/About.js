@@ -4,7 +4,10 @@ export default class About extends Component {
   render() {
     return (
       <div className="w-8/12 mx-auto border border-black border-2 px-4">
-        <h1 className="text-center text-4xl sticky top-0 mt-20 mb-10 pt-10">
+        <h1
+          className="text-center text-4xl sticky top-0 mt-20 mb-10 pt-10"
+          id="about-me"
+        >
           About Me
         </h1>
         <div className="flex items-center justify-around">
