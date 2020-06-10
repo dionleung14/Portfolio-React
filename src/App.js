@@ -9,16 +9,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
+      <NavBar />
       <Switch>
-        <div className="App">
-          <NavBar />
-          <Route exact path="/about-me">
-            <About />
-          </Route>
-          {/* <About /> */}
-          <Portfolio />
-          <ContactForm />
-        </div>
+        <Route exact path="/about-me">
+          <About />
+        </Route>
+        {/* <About /> */}
+        <Portfolio />
+        <ContactForm />
       </Switch>
     </Router>
   );
