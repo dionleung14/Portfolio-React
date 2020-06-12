@@ -15,7 +15,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div>
-        <text className="text-lg">Hamburger</text>
+        <h1 className="text-lg">Hamburger</h1>
       </div>
     </div>
   );
