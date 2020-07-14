@@ -10,7 +10,7 @@ export default class About extends Component {
         >
           About Me
         </h1>
-        <div className="flex items-center justify-around">
+        <div className="flex items-center justify-around border-white border-2">
           <div>
             <img
               className="border border-red-700 border-2 mr-8"
@@ -41,6 +41,16 @@ export default class About extends Component {
               volleyball, and baseball, and making progress on my seemingly
               neverending list of shows to watch.
             </p>
+          </div>
+        </div>
+        <div className="border-white border-2">
+          <div>
+            <img
+              className="border border-red-700 border-2 mx-auto"
+              src="https://loremflickr.com/400/400"
+              alt="headshot"
+            />
+            <p className="text-xs text-center">Caption</p>
           </div>
         </div>
       </div>
