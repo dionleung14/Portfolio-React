@@ -14,7 +14,7 @@ export default class About extends Component {
           <div>
             <img
               className="border border-red-700 border-2 mr-8"
-              src="https://loremflickr.com/800/1200"
+              src="https://placekitten.com/800/1200"
               alt="headshot"
             />
             <p className="text-xs">Caption</p>
@@ -47,7 +47,7 @@ export default class About extends Component {
           <div>
             <img
               className="border border-red-700 border-2 mx-auto"
-              src="https://loremflickr.com/400/400"
+              src="https://placekitten.com/400/400"
               alt="headshot"
             />
             <p className="text-xs text-center">Caption</p>
