@@ -1,6 +1,7 @@
 import React from "react";
 // import logo from "./logo.svg";
 import NavBar from "./components/Navbar";
+import Welcome from "./components/Welcome";
 import About from "./components/About";
 import Meet from "./components/Meet";
 import Quals from "./components/Quals";
@@ -15,6 +16,7 @@ function App() {
       <NavBar />
       {/* <Switch>
         <Route exact path="/about-me"> */}
+      <Welcome />
       <About />
       {/* </Route> */}
       {/* <About /> */}
