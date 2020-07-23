@@ -33,10 +33,6 @@ export default function Welcome() {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }
