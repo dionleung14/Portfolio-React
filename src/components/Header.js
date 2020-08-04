@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Header(props) {
   return (
-    <div>
-      <h1 className="text-center text-4xl top-0 pt-10">{props.text}</h1>
-    </div>
+    <h1 className="border border-white border-2 text-center text-4xl sticky top-0 pt-2 z-20">
+      {props.text}
+    </h1>
   );
 }
