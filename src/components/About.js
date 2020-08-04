@@ -13,7 +13,7 @@ export default class About extends Component {
         >
           About Me
         </h1> */}
-        <div className="flex items-center justify-around border-white border-2">
+        <div className="flex items-center justify-around border-white border-2 pt-12">
           <div>
             <img
               className="border border-red-700 border-2 mr-8"

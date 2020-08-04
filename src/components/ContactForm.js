@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FirstHeader from "./FirstHeader";
 
 export default function ContactForm() {
   const [inputName, setInputName] = useState({
@@ -12,7 +13,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="sticky my-3 py-10">
+    <div className="w-8/12 mx-auto border border-black border-2 px-4">
+      <FirstHeader text="Contact me!" />
       <form className="text-center">
         <input
           type="text"

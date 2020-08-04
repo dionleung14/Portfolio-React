@@ -24,7 +24,7 @@ function App() {
       <Quals />
       <Portfolio />
       <Testimonials />
-      {/* <ContactForm /> */}
+      <ContactForm />
       {/* </Switch> */}
     </Router>
   );
