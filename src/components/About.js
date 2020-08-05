@@ -7,16 +7,16 @@ export default class About extends Component {
     return (
       <div className="w-8/12 mx-auto border border-black border-2 px-4">
         <FirstHeader text="About Me" />
-        <div className="flex items-center justify-around border-white border-2 pt-12">
-          <div>
+        <div className="flex items-center justify-around border-white border-2 px-6 py-12">
+          <div className="w-1/2 mx-4 my-8">
             <img
-              className="border border-red-700 border-2 mr-8"
+              className="border border-red-700 border-2"
               src="https://placekitten.com/800/1200"
               alt="headshot"
             />
             <p className="text-xs">Caption</p>
           </div>
-          <div className="border border-black border-2 m-3">
+          <div className="w-1/2 border border-black border-2">
             <p>Full-Stack Web Developer</p>
             <br />
             <p>React</p>
