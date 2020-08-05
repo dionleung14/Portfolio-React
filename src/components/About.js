@@ -33,6 +33,23 @@ export default class About extends Component {
               degree. I decided to switch things up completely and pursue a
               career in web-development and here I am!
             </p>
+            <p>Full-Stack Web Developer</p>
+            <br />
+            <p>React</p>
+            <br />
+            <p>Express</p>
+            <br />
+            <p>MySQL</p>
+            <br />
+            <p>MySQL</p>
+            <br />
+            <p>
+              B.S. Civil and Environmental Engineering, University of Washington
+            </p>
+            <br />
+            <p>Seattle native</p>
+            <br />
+            <p>Civil and Environmental Engineer-In-Training</p>
             <br />
             <p>
               In my time as a junior web developer, I have been able to learn a
