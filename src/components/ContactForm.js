@@ -16,7 +16,7 @@ export default function ContactForm() {
     <div className="w-8/12 mx-auto border border-black border-2 px-4">
       <FirstHeader text="Contact me!" />
       <div className="testclass">
-        <h3 className="w-3/4">
+        <h3 className="w-3/4 mt-8">
           Hit me up! Have any questions? Want to collaborate together? Secretly
           dying to know my favorite song? Send me an email and I'll get back to
           you as soon as I can!
@@ -84,7 +84,20 @@ export default function ContactForm() {
           <div className="w-1/4 mx-4">
             <div className="form-group">
               <label for="viewerName">Subject</label>
-              <input type="name" className="form-control" id="viewerName" />
+              <select
+                type="name"
+                className="form-control"
+                id="viewerName"
+                placeholder="Please select an option"
+              >
+                <option value="none" selected disabled hidden>
+                  Please select an option
+                </option>
+                <option value="choice">Networking</option>
+                <option value="choice">Inquiry</option>
+                <option value="choice">Collaboration</option>
+                <option value="choice">Other (specify in message)</option>
+              </select>
             </div>
           </div>
 
@@ -101,8 +114,9 @@ export default function ContactForm() {
           </div>
 
           {/* <!-- Preferred method of contact checkboxes --> */}
-          <div className="row">
-            <div className="col-3">
+          <div className="">
+            <h1>How would you like me to respond? Check all that apply</h1>
+            <div className="">
               <div className="form-group form-check">
                 <input
                   type="checkbox"
