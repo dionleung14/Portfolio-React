@@ -16,7 +16,7 @@ export default function ContactForm() {
     <div className="w-8/12 mx-auto border border-black border-2 px-4">
       <FirstHeader text="Contact me!" />
       <div className="testclass">
-        <h3 className="w-3/4 mt-8">
+        <h3 className="w-3/4 my-8">
           Hit me up! Have any questions? Want to collaborate together? Secretly
           dying to know my favorite song? Send me an email and I'll get back to
           you as soon as I can!
@@ -33,46 +33,37 @@ export default function ContactForm() {
           {/* <!-- First and Last Name --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             {/* <!-- First Name --> */}
-            <div className="w-1/4 mx-4">
-              <div className="form-group">
-                <label for="viewerName">First Name</label>
-                <input type="name" className="form-control" id="viewerName" />
-              </div>
+            <div className="w-1/4 mx-4 border-blue-600 border-2">
+              <label for="viewerName">First Name</label>
+              <input type="name" className="" id="viewerName" required />
             </div>
             {/* <!-- Last Name --> */}
-            <div className="w-1/4 mx-4">
-              <div className="form-group">
-                <label for="viewerName">Last Name</label>
-                <input type="name" className="form-control" id="viewerName" />
-              </div>
+            <div className="w-1/4 mx-4 border-blue-600 border-2">
+              <label for="viewerName">Last Name</label>
+              <input type="name" className="" id="viewerName" />
             </div>
           </div>
 
           {/* <!-- Email and phone number --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             <div className="w-1/4 mx-4 border border-red-200 border-2">
-              <div className="form-group">
-                <label for="inputEmail">Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="inputEmail"
-                  aria-describedby="emailHelp"
-                />
-                <br />
-                <small id="emailHelp" className="form-text text-muted">
-                  I'll never share your email with anyone else.
-                </small>
-              </div>
+              <label for="inputEmail">Email address</label>
+              <input
+                type="email"
+                className=""
+                id="inputEmail"
+                aria-describedby="emailHelp"
+                required
+              />
+              <br />
+              <small id="emailHelp" className="form-text text-muted">
+                I'll never share your email with anyone else.
+              </small>
             </div>
             {/* <!-- Phone number --> */}
             <div className="w-1/4 mx-4 border border-red-200 border-2">
               <label for="phoneNumber">Phone Number</label>
-              <input
-                type="phonenumber"
-                className="form-control"
-                id="phoneNumber"
-              />
+              <input type="phonenumber" className="" id="phoneNumber" />
               <br />
               <small id="emailHelp" className="form-text text-muted">
                 I'll never share your phone number with anyone else either.
@@ -82,11 +73,11 @@ export default function ContactForm() {
 
           {/* Subject */}
           <div className="w-1/4 mx-4">
-            <div className="form-group">
+            <div className="">
               <label for="viewerName">Subject</label>
               <select
                 type="name"
-                className="form-control"
+                className=""
                 id="viewerName"
                 placeholder="Please select an option"
               >
@@ -105,26 +96,32 @@ export default function ContactForm() {
           <div className="test">
             <div className="w-full">
               <label for="message">Message</label>
-              <input
-                type="message"
-                className="form-control w-full"
-                id="message"
-              />
+              <input type="message" className=" w-full" id="message" required />
             </div>
           </div>
 
           {/* <!-- Preferred method of contact checkboxes --> */}
           <div className="">
             <h1>How would you like me to respond? Check all that apply</h1>
+            <div className="col-3">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="emailContact"
+              />
+              <label className="form-check-label" for="emailContact">
+                Email me!
+              </label>
+            </div>
             <div className="">
-              <div className="form-group form-check">
+              <div className=" form-check">
                 <input
                   type="checkbox"
                   className="form-check-input"
                   id="phoneCall"
                 />
                 <label className="form-check-label" for="phoneCall">
-                  I prefer getting a call!
+                  Call me!
                 </label>
               </div>
             </div>
@@ -135,21 +132,9 @@ export default function ContactForm() {
                 id="phoneMessage"
               />
               <label className="form-check-label" for="phoneMessage">
-                I prefer getting a text!
+                Text me!
               </label>
             </div>
-            <div className="col-3">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="emailContact"
-              />
-              <label className="form-check-label" for="emailContact">
-                I prefer getting an email!
-              </label>
-            </div>
-            {/* <!-- Empty column for spacing --> */}
-            <div className="col-3"></div>
           </div>
 
           {/* <!-- Submit button --> */}
