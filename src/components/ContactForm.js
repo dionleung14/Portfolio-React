@@ -12,6 +12,11 @@ export default function ContactForm() {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("I was submitted");
+  };
+
   return (
     <div className="w-8/12 mx-auto border border-black border-2 px-4">
       <FirstHeader text="Contact me!" />
@@ -21,7 +26,7 @@ export default function ContactForm() {
           dying to know my favorite song? Send me an email and I'll get back to
           you as soon as I can!
         </h3>
-        <form className="text-center">
+        <form className="text-center" id="contact-form" onSubmit={handleSubmit}>
           <input
             type="text"
             value={inputName.inputField}
@@ -34,20 +39,20 @@ export default function ContactForm() {
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             {/* <!-- First Name --> */}
             <div className="w-1/4 mx-4 border-blue-600 border-2">
-              <label for="viewerName">First Name</label>
-              <input type="name" className="" id="viewerName" required />
+              <label htmlFor="viewerName">First Name</label>
+              <input type="name" className="" id="first-name" required />
             </div>
             {/* <!-- Last Name --> */}
             <div className="w-1/4 mx-4 border-blue-600 border-2">
-              <label for="viewerName">Last Name</label>
-              <input type="name" className="" id="viewerName" />
+              <label htmlFor="viewerName">Last Name</label>
+              <input type="name" className="" id="last-name" />
             </div>
           </div>
 
           {/* <!-- Email and phone number --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             <div className="w-1/4 mx-4 border border-red-200 border-2">
-              <label for="inputEmail">Email address</label>
+              <label htmlFor="inputEmail">Email address</label>
               <input
                 type="email"
                 className=""
@@ -62,7 +67,7 @@ export default function ContactForm() {
             </div>
             {/* <!-- Phone number --> */}
             <div className="w-1/4 mx-4 border border-red-200 border-2">
-              <label for="phoneNumber">Phone Number</label>
+              <label htmlFor="phoneNumber">Phone Number</label>
               <input type="phonenumber" className="" id="phoneNumber" />
               <br />
               <small id="emailHelp" className="form-text text-muted">
@@ -74,14 +79,14 @@ export default function ContactForm() {
           {/* Subject */}
           <div className="w-1/4 mx-4">
             <div className="">
-              <label for="viewerName">Subject</label>
+              <label htmlFor="viewerName">Subject</label>
               <select
                 type="name"
                 className=""
-                id="viewerName"
+                id="subject"
                 placeholder="Please select an option"
               >
-                <option value="none" selected disabled hidden>
+                <option value="none" defaultValue disabled hidden>
                   Please select an option
                 </option>
                 <option value="choice">Networking</option>
@@ -95,7 +100,7 @@ export default function ContactForm() {
           {/* <!-- Message --> */}
           <div className="test">
             <div className="w-full">
-              <label for="message">Message</label>
+              <label htmlFor="message">Message</label>
               <input type="message" className=" w-full" id="message" required />
             </div>
           </div>
@@ -109,7 +114,7 @@ export default function ContactForm() {
                 className="form-check-input"
                 id="emailContact"
               />
-              <label className="form-check-label" for="emailContact">
+              <label className="form-check-label" htmlFor="emailContact">
                 Email me!
               </label>
             </div>
@@ -120,7 +125,7 @@ export default function ContactForm() {
                   className="form-check-input"
                   id="phoneCall"
                 />
-                <label className="form-check-label" for="phoneCall">
+                <label className="form-check-label" htmlFor="phoneCall">
                   Call me!
                 </label>
               </div>
@@ -131,7 +136,7 @@ export default function ContactForm() {
                 className="form-check-input"
                 id="phoneMessage"
               />
-              <label className="form-check-label" for="phoneMessage">
+              <label className="form-check-label" htmlFor="phoneMessage">
                 Text me!
               </label>
             </div>
@@ -156,7 +161,7 @@ export default function ContactForm() {
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              htmlFor="grid-first-name"
             >
               First Name
             </label>
@@ -173,7 +178,7 @@ export default function ContactForm() {
           <div className="w-full md:w-1/2 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+              htmlFor="grid-last-name"
             >
               Last Name
             </label>
@@ -189,7 +194,7 @@ export default function ContactForm() {
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              htmlFor="grid-password"
             >
               Password
             </label>
@@ -208,7 +213,7 @@ export default function ContactForm() {
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-city"
+              htmlFor="grid-city"
             >
               City
             </label>
@@ -222,7 +227,7 @@ export default function ContactForm() {
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-state"
+              htmlFor="grid-state"
             >
               State
             </label>
@@ -249,7 +254,7 @@ export default function ContactForm() {
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-zip"
+              htmlFor="grid-zip"
             >
               Zip
             </label>
