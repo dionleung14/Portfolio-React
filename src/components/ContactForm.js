@@ -2,15 +2,40 @@ import React, { useState } from "react";
 import FirstHeader from "./FirstHeader";
 
 export default function ContactForm() {
-  const [inputName, setInputName] = useState({
-    inputField: "",
+  const [formInfo, setFormInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phNum: 0,
+    subject: "",
+    message: "",
   });
 
   const handleInput = (event) => {
-    setInputName({
-      inputField: event.target.value,
+    event.preventDefault();
+    setFormInfo({
+      ...formInfo,
+      [event.target.name]: event.target.value,
     });
+    // const name = event.target.name;
+    // const value = event.target.value;
+
+    // setInputName({
+    //   [name]: value,
+    // inputField: event.target.value,
+    // };
   };
+
+  // const handleFirstName = (event) => {
+  //   setFirstName({
+  //     firstNameField: event.target.value,
+  //   });
+  // };
+  // const handleLastName = (event) => {
+  //   setLastName({
+  //     lastNameField: event.target.value,
+  //   });
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,12 +52,12 @@ export default function ContactForm() {
           you as soon as I can!
         </h3>
         <form className="text-center" id="contact-form" onSubmit={handleSubmit}>
-          <input
+          {/* <input
             type="text"
             value={inputName.inputField}
             onChange={handleInput}
           />
-          <h1>Text being typed: {inputName.inputField}</h1>
+          <h1>Text being typed: {inputName.inputField}</h1> */}
 
           {/* <form> */}
           {/* <!-- First and Last Name --> */}
@@ -40,12 +65,23 @@ export default function ContactForm() {
             {/* <!-- First Name --> */}
             <div className="w-1/4 mx-4 border-blue-600 border-2">
               <label htmlFor="viewerName">First Name</label>
-              <input type="name" className="" id="first-name" required />
+              <input
+                type="name"
+                className=""
+                id="first-name"
+                onChange={handleInput}
+                required
+              />
             </div>
             {/* <!-- Last Name --> */}
             <div className="w-1/4 mx-4 border-blue-600 border-2">
               <label htmlFor="viewerName">Last Name</label>
-              <input type="name" className="" id="last-name" />
+              <input
+                type="name"
+                className=""
+                id="last-name"
+                onChange={handleInput}
+              />
             </div>
           </div>
 
@@ -84,15 +120,12 @@ export default function ContactForm() {
                 type="name"
                 className=""
                 id="subject"
-                placeholder="Please select an option"
+                value="Please select an option"
               >
-                <option value="none" defaultValue disabled hidden>
-                  Please select an option
-                </option>
-                <option value="choice">Networking</option>
-                <option value="choice">Inquiry</option>
-                <option value="choice">Collaboration</option>
-                <option value="choice">Other (specify in message)</option>
+                <option value="Networking">Networking</option>
+                <option value="Inquiry">Inquiry</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Other">Other (specify in message)</option>
               </select>
             </div>
           </div>
