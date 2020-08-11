@@ -25,6 +25,11 @@ export default function ContactForm() {
     });
   };
 
+  const handleContactMethod = (event) => {
+    event.preventDefault();
+    console.log(event);
+  };
+
   return (
     <div className="w-8/12 mx-auto border border-black border-2 px-4">
       <FirstHeader text="Contact me!" />
@@ -120,8 +125,10 @@ export default function ContactForm() {
                 type="name"
                 className=""
                 id="subject"
-                value="Please select an option"
+                value={formState.subject}
                 name="subject"
+                onChange={handleInput}
+                required
               >
                 <option value="Networking">Networking</option>
                 <option value="Inquiry">Inquiry</option>
@@ -140,6 +147,7 @@ export default function ContactForm() {
                 className=" w-full"
                 id="message"
                 name="message"
+                onChange={handleInput}
                 required
               />
             </div>
@@ -153,6 +161,8 @@ export default function ContactForm() {
                 type="checkbox"
                 className="form-check-input"
                 id="emailContact"
+                name="emailMe"
+                onChange={console.log("selected an option")}
               />
               <label className="form-check-label" htmlFor="emailContact">
                 Email me!
@@ -164,6 +174,8 @@ export default function ContactForm() {
                   type="checkbox"
                   className="form-check-input"
                   id="phoneCall"
+                  name="callMe"
+                  onChange={handleContactMethod}
                 />
                 <label className="form-check-label" htmlFor="phoneCall">
                   Call me!
@@ -175,6 +187,7 @@ export default function ContactForm() {
                 type="checkbox"
                 className="form-check-input"
                 id="phoneMessage"
+                name="textMe"
               />
               <label className="form-check-label" htmlFor="phoneMessage">
                 Text me!
