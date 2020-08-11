@@ -2,44 +2,27 @@ import React, { useState } from "react";
 import FirstHeader from "./FirstHeader";
 
 export default function ContactForm() {
-  const [formInfo, setFormInfo] = useState({
+  const handleSubmission = (event) => {
+    event.preventDefault();
+    console.log("I was submitted");
+  };
+
+  const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phNum: 0,
     subject: "",
     message: "",
+    contactMethod: {},
   });
 
   const handleInput = (event) => {
     event.preventDefault();
-    setFormInfo({
-      ...formInfo,
+    setFormState({
+      ...formState,
       [event.target.name]: event.target.value,
     });
-    // const name = event.target.name;
-    // const value = event.target.value;
-
-    // setInputName({
-    //   [name]: value,
-    // inputField: event.target.value,
-    // };
-  };
-
-  // const handleFirstName = (event) => {
-  //   setFirstName({
-  //     firstNameField: event.target.value,
-  //   });
-  // };
-  // const handleLastName = (event) => {
-  //   setLastName({
-  //     lastNameField: event.target.value,
-  //   });
-  // };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("I was submitted");
   };
 
   return (
@@ -51,7 +34,11 @@ export default function ContactForm() {
           dying to know my favorite song? Send me an email and I'll get back to
           you as soon as I can!
         </h3>
-        <form className="text-center" id="contact-form" onSubmit={handleSubmit}>
+        <form
+          className="text-center"
+          id="contact-form"
+          onSubmit={handleSubmission}
+        >
           {/* <input
             type="text"
             value={inputName.inputField}
@@ -64,12 +51,15 @@ export default function ContactForm() {
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             {/* <!-- First Name --> */}
             <div className="w-1/4 mx-4 border-blue-600 border-2">
-              <label htmlFor="viewerName">First Name</label>
+              <label htmlFor="firstName">First Name</label>
               <input
-                type="name"
-                className=""
-                id="first-name"
+                className="form-control"
+                type="text"
+                value={formState.firstName}
                 onChange={handleInput}
+                placeholder="First Name"
+                name="firstName"
+                // id="first-name"
                 required
               />
             </div>
@@ -81,6 +71,8 @@ export default function ContactForm() {
                 className=""
                 id="last-name"
                 onChange={handleInput}
+                value={formState.lastName}
+                name="lastName"
               />
             </div>
           </div>
@@ -94,6 +86,8 @@ export default function ContactForm() {
                 className=""
                 id="inputEmail"
                 aria-describedby="emailHelp"
+                onChange={handleInput}
+                name="email"
                 required
               />
               <br />
@@ -104,7 +98,13 @@ export default function ContactForm() {
             {/* <!-- Phone number --> */}
             <div className="w-1/4 mx-4 border border-red-200 border-2">
               <label htmlFor="phoneNumber">Phone Number</label>
-              <input type="phonenumber" className="" id="phoneNumber" />
+              <input
+                type="phonenumber"
+                className=""
+                id="phoneNumber"
+                onChange={handleInput}
+                name="phNum"
+              />
               <br />
               <small id="emailHelp" className="form-text text-muted">
                 I'll never share your phone number with anyone else either.
@@ -121,6 +121,7 @@ export default function ContactForm() {
                 className=""
                 id="subject"
                 value="Please select an option"
+                name="subject"
               >
                 <option value="Networking">Networking</option>
                 <option value="Inquiry">Inquiry</option>
@@ -134,7 +135,13 @@ export default function ContactForm() {
           <div className="test">
             <div className="w-full">
               <label htmlFor="message">Message</label>
-              <input type="message" className=" w-full" id="message" required />
+              <input
+                type="message"
+                className=" w-full"
+                id="message"
+                name="message"
+                required
+              />
             </div>
           </div>
 
@@ -184,12 +191,12 @@ export default function ContactForm() {
             </div>
           </div>
           {/* </form> */}
-          <h1>This form should be at the bottom of the page</h1>
+          {/* <h1>This form should be at the bottom of the page</h1> */}
         </form>
       </div>
 
       {/* Copied from tailwind docs */}
-      <form className="w-full max-w-lg">
+      {/*<form className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
@@ -299,7 +306,7 @@ export default function ContactForm() {
             />
           </div>
         </div>
-      </form>
+        </form>*/}
     </div>
   );
 }
