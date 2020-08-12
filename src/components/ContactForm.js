@@ -14,7 +14,10 @@ export default function ContactForm() {
     phNum: 0,
     subject: "",
     message: "",
-    contactMethod: {},
+    emailMe: true,
+    callMe: false,
+    textMe: false,
+    // contactMethod: {},
   });
 
   const handleInput = (event) => {
@@ -25,9 +28,23 @@ export default function ContactForm() {
     });
   };
 
+  const [state, setState] = useState({
+    gender: false,
+    love: false,
+  });
+
+  const handleToggle = ({ target }) =>
+    setState((s) => ({ ...s, [target.name]: !s[target.name] }));
+
   const handleContactMethod = (event) => {
-    event.preventDefault();
-    console.log(event);
+    // event.preventDefault();
+    // console.log(`${event.target.name}: is ${event.target.value}`);
+    console.log(event.target.value);
+    setFormState({
+      ...formState,
+      [event.target.name]: event.target.value,
+      // contactMethod: {... [event.target.name]: event.target.value },
+    });
   };
 
   return (
@@ -162,7 +179,7 @@ export default function ContactForm() {
                 className="form-check-input"
                 id="emailContact"
                 name="emailMe"
-                onChange={console.log("selected an option")}
+                onChange={handleContactMethod}
               />
               <label className="form-check-label" htmlFor="emailContact">
                 Email me!
@@ -192,6 +209,17 @@ export default function ContactForm() {
               <label className="form-check-label" htmlFor="phoneMessage">
                 Text me!
               </label>
+            </div>
+            <div>
+              {Object.keys(state).map((key) => (
+                <input
+                  type="checkbox"
+                  onChange={handleToggle}
+                  key={key}
+                  name={key}
+                  checked={state[key]}
+                />
+              ))}
             </div>
           </div>
 
