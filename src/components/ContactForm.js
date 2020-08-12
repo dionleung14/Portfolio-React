@@ -14,10 +14,6 @@ export default function ContactForm() {
     phNum: 0,
     subject: "",
     message: "",
-    emailMe: true,
-    callMe: false,
-    textMe: false,
-    // contactMethod: {},
   });
 
   const handleInput = (event) => {
@@ -28,13 +24,26 @@ export default function ContactForm() {
     });
   };
 
-  const [state, setState] = useState({
-    gender: false,
-    love: false,
+  const [contactMethodState, setContactMethodState] = useState({
+    email: true,
+    call: false,
+    text: false,
   });
 
+  const contactMethodStr = (string) => {
+    console.log(string);
+    // let capped = string.split("");
+    // console.log(typeof capped);
+    // let printed = string + " me!";
+    // let length = splutted.length;
+    // console.log(splutted[length - 2]);
+    // console.log(printed);
+    return string;
+    // return printed;
+  };
+
   const handleToggle = ({ target }) =>
-    setState((s) => ({ ...s, [target.name]: !s[target.name] }));
+    setContactMethodState((s) => ({ ...s, [target.name]: !s[target.name] }));
 
   const handleContactMethod = (event) => {
     // event.preventDefault();
@@ -173,7 +182,7 @@ export default function ContactForm() {
           {/* <!-- Preferred method of contact checkboxes --> */}
           <div className="">
             <h1>How would you like me to respond? Check all that apply</h1>
-            <div className="col-3">
+            {/* <div className="col-3">
               <input
                 type="checkbox"
                 className="form-check-input"
@@ -209,16 +218,19 @@ export default function ContactForm() {
               <label className="form-check-label" htmlFor="phoneMessage">
                 Text me!
               </label>
-            </div>
+            </div> */}
             <div>
-              {Object.keys(state).map((key) => (
-                <input
-                  type="checkbox"
-                  onChange={handleToggle}
-                  key={key}
-                  name={key}
-                  checked={state[key]}
-                />
+              {Object.keys(contactMethodState).map((key) => (
+                <div>
+                  <input
+                    type="checkbox"
+                    onChange={handleToggle}
+                    key={key}
+                    name={key}
+                    checked={contactMethodState[key]}
+                  />
+                  <label>{contactMethodStr(key)}</label>
+                </div>
               ))}
             </div>
           </div>
