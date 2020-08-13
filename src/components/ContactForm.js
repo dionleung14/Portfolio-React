@@ -5,6 +5,11 @@ export default function ContactForm() {
   const handleSubmission = (event) => {
     event.preventDefault();
     console.log("I was submitted");
+    let contactFormSubmission = {
+      formState,
+      contactMethodState,
+    };
+    console.log(contactFormSubmission);
   };
 
   const [formState, setFormState] = useState({
@@ -31,15 +36,11 @@ export default function ContactForm() {
   });
 
   const contactMethodStr = (string) => {
-    console.log(string);
-    // let capped = string.split("");
-    // console.log(typeof capped);
-    // let printed = string + " me!";
-    // let length = splutted.length;
-    // console.log(splutted[length - 2]);
-    // console.log(printed);
-    return string;
-    // return printed;
+    let firstLet = string.slice(0, 1);
+    let rest = string.slice(1);
+    let combined = firstLet.toUpperCase().concat(rest);
+    let printed = combined + " me!";
+    return printed;
   };
 
   const handleToggle = ({ target }) =>
