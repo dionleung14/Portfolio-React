@@ -4,12 +4,17 @@ import FirstHeader from "./FirstHeader";
 export default function ContactForm() {
   const handleSubmission = (event) => {
     event.preventDefault();
-    console.log("I was submitted");
-    let contactFormSubmission = {
-      formState,
-      contactMethodState,
-    };
-    console.log(contactFormSubmission);
+    let contactMethodCheck = Object.values(contactMethodState);
+    if (contactMethodCheck.includes(true)) {
+      let contactFormFilled = {
+        formState,
+        contactMethodState,
+      };
+      // send it to a database
+      console.log(contactFormFilled);
+    } else {
+      alert("Please select a method for me to reach you");
+    }
   };
 
   const [formState, setFormState] = useState({
@@ -45,17 +50,6 @@ export default function ContactForm() {
 
   const handleToggle = ({ target }) =>
     setContactMethodState((s) => ({ ...s, [target.name]: !s[target.name] }));
-
-  const handleContactMethod = (event) => {
-    // event.preventDefault();
-    // console.log(`${event.target.name}: is ${event.target.value}`);
-    console.log(event.target.value);
-    setFormState({
-      ...formState,
-      [event.target.name]: event.target.value,
-      // contactMethod: {... [event.target.name]: event.target.value },
-    });
-  };
 
   return (
     <div className="w-8/12 mx-auto border border-black border-2 px-4">
@@ -183,46 +177,9 @@ export default function ContactForm() {
           {/* <!-- Preferred method of contact checkboxes --> */}
           <div className="">
             <h1>How would you like me to respond? Check all that apply</h1>
-            {/* <div className="col-3">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="emailContact"
-                name="emailMe"
-                onChange={handleContactMethod}
-              />
-              <label className="form-check-label" htmlFor="emailContact">
-                Email me!
-              </label>
-            </div>
-            <div className="">
-              <div className=" form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="phoneCall"
-                  name="callMe"
-                  onChange={handleContactMethod}
-                />
-                <label className="form-check-label" htmlFor="phoneCall">
-                  Call me!
-                </label>
-              </div>
-            </div>
-            <div className="col-3">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="phoneMessage"
-                name="textMe"
-              />
-              <label className="form-check-label" htmlFor="phoneMessage">
-                Text me!
-              </label>
-            </div> */}
             <div>
               {Object.keys(contactMethodState).map((key) => (
-                <div>
+                <div className="open">
                   <input
                     type="checkbox"
                     onChange={handleToggle}
@@ -238,13 +195,13 @@ export default function ContactForm() {
 
           {/* <!-- Submit button --> */}
           <div className="row">
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="border border-green-400 py-2 px-4 bg-green-400"
+            >
+              Submit
+            </button>
           </div>
-          {/* </form> */}
           {/* <h1>This form should be at the bottom of the page</h1> */}
         </form>
       </div>
