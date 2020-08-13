@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./Header.js";
+// import Header from "./Header.js";
 import FirstHeader from "./FirstHeader";
 
 export default class About extends Component {
