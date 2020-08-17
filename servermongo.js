@@ -28,6 +28,30 @@ app.get("/all", (req, res) => {
   });
 });
 
+app.post("/contact", (req, res) => {
+  db.contacts.insert(
+    {
+      call: req.body.call,
+      email: req.body.email,
+      emailAddress: req.body.emailAddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      message: req.body.message,
+      phNum: req.body.phNum,
+      subject: req.body.subject,
+      text: req.body.text,
+      date: req.body.date,
+    },
+    (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).send(data);
+      }
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });

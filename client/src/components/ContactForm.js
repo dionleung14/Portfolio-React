@@ -1,16 +1,35 @@
 import React, { useState } from "react";
 import FirstHeader from "./FirstHeader";
+import API from "../utils/API";
 
 export default function ContactForm() {
   const handleSubmission = (event) => {
     event.preventDefault();
     let contactMethodCheck = Object.values(contactMethodState);
     if (contactMethodCheck.includes(true)) {
+      let { call, email, text } = contactMethodState;
+      let {
+        firstName,
+        lastName,
+        emailAddress,
+        phNum,
+        subject,
+        message,
+      } = formState;
       let contactFormFilled = {
-        formState,
-        contactMethodState,
+        firstName,
+        lastName,
+        emailAddress,
+        phNum,
+        subject,
+        message,
+        call,
+        email,
+        text,
       };
-      // send it to a database
+      API.submitMessage(contactFormFilled).then((res) =>
+        console.log(res).catch((err) => console.log(err))
+      );
       console.log(contactFormFilled);
     } else {
       alert("Please select a method for me to reach you");
@@ -20,7 +39,7 @@ export default function ContactForm() {
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    emailAddress: "",
     phNum: 0,
     subject: "",
     message: "",
@@ -113,7 +132,7 @@ export default function ContactForm() {
                 id="inputEmail"
                 aria-describedby="emailHelp"
                 onChange={handleInput}
-                name="email"
+                name="emailAddress"
                 required
               />
               <br />
