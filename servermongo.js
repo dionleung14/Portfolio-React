@@ -1,11 +1,12 @@
 const express = require(`express`);
 const mongojs = require("mongojs");
-const { data } = require("autoprefixer");
+// const { data } = require("autoprefixer");
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-const databaseURL = "contacts";
-const collections = ["messages"];
+const databaseURL = "portfolio";
+const collections = ["contacts"];
 
 const db = mongojs(databaseURL, collections);
 
@@ -18,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/all", (req, res) => {
-  db.messages.find({}, (err, data) => {
+  db.contacts.find({}, (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -27,6 +28,6 @@ app.get("/all", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("App running on port 3000!");
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
 });
