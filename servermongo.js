@@ -5,6 +5,11 @@ const mongojs = require("mongojs");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static("public"));
+
 const databaseURL = "portfolio";
 const collections = ["contacts"];
 
@@ -28,19 +33,22 @@ app.get("/all", (req, res) => {
   });
 });
 
-app.post("/contact", (req, res) => {
+app.post("/submit", (req, res) => {
+  console.log(req.body);
+  console.log(res);
   db.contacts.insert(
     {
-      call: req.body.call,
-      email: req.body.email,
-      emailAddress: req.body.emailAddress,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      message: req.body.message,
-      phNum: req.body.phNum,
-      subject: req.body.subject,
-      text: req.body.text,
-      date: req.body.date,
+      hello: req.body.test,
+      // call: req.body.call,
+      // email: req.body.email,
+      // emailAddress: req.body.emailAddress,
+      // firstName: req.body.firstName,
+      // lastName: req.body.lastName,
+      // message: req.body.message,
+      // phNum: req.body.phNum,
+      // subject: req.body.subject,
+      // text: req.body.text,
+      // date: req.body.date,
     },
     (err, data) => {
       if (err) {
@@ -50,6 +58,7 @@ app.post("/contact", (req, res) => {
       }
     }
   );
+  // );
 });
 
 app.listen(PORT, () => {
