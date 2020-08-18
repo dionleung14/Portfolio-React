@@ -1,9 +1,14 @@
 const express = require(`express`);
 const path = require(`path`);
 const fs = require(`fs`);
+const mongoose = require("mongoose");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/porfolio", {
+  useNewUrlParser: true,
+});
 
 app.use(
   express.urlencoded({

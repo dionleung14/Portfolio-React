@@ -1,9 +1,14 @@
 const express = require(`express`);
 const mongojs = require("mongojs");
+// const routes = require("./routes");
 // const { data } = require("autoprefixer");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/porfolio", {
+  useNewUrlParser: true,
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,21 +39,21 @@ app.get("/all", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  console.log(req.body);
-  console.log(res);
+  // console.log(req.body);
+  // console.log(res);
   db.contacts.insert(
     {
-      hello: req.body.test,
-      // call: req.body.call,
-      // email: req.body.email,
-      // emailAddress: req.body.emailAddress,
-      // firstName: req.body.firstName,
-      // lastName: req.body.lastName,
-      // message: req.body.message,
-      // phNum: req.body.phNum,
-      // subject: req.body.subject,
-      // text: req.body.text,
-      // date: req.body.date,
+      // hello: req.body.test,
+      call: req.body.call,
+      email: req.body.email,
+      emailAddress: req.body.emailAddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      message: req.body.message,
+      phNum: req.body.phNum,
+      subject: req.body.subject,
+      text: req.body.text,
+      date: Date.now(),
     },
     (err, data) => {
       if (err) {

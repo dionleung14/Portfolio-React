@@ -3,6 +3,10 @@ import FirstHeader from "./FirstHeader";
 import API from "../utils/API";
 
 export default function ContactForm() {
+  const logged = () => {
+    console.log("completed");
+  };
+
   const handleSubmission = (event) => {
     event.preventDefault();
     let contactMethodCheck = Object.values(contactMethodState);
@@ -28,7 +32,7 @@ export default function ContactForm() {
         text,
       };
       API.submitMessage(contactFormFilled).then((res) =>
-        console.log(res).catch((err) => console.log(err))
+        logged().catch((err) => console.log(err))
       );
       console.log(contactFormFilled);
     } else {
