@@ -6,9 +6,9 @@ const mongojs = require("mongojs");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/porfolio", {
-  useNewUrlParser: true,
-});
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/porfolio", {
+//   useNewUrlParser: true,
+// });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

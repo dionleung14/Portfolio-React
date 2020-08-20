@@ -31,8 +31,9 @@ export default function ContactForm() {
         email,
         text,
       };
-      API.submitMessage(contactFormFilled).then((res) =>
-        logged().catch((err) => console.log(err))
+      API.submitMessage(contactFormFilled).then(
+        (res) => logged()
+        // .catch((err) => console.log(err))
       );
       console.log(contactFormFilled);
     } else {
@@ -44,8 +45,8 @@ export default function ContactForm() {
     firstName: "",
     lastName: "",
     emailAddress: "",
-    phNum: 0,
-    subject: "",
+    phNum: "",
+    subject: "Networking",
     message: "",
   });
 
@@ -88,14 +89,6 @@ export default function ContactForm() {
           id="contact-form"
           onSubmit={handleSubmission}
         >
-          {/* <input
-            type="text"
-            value={inputName.inputField}
-            onChange={handleInput}
-          />
-          <h1>Text being typed: {inputName.inputField}</h1> */}
-
-          {/* <form> */}
           {/* <!-- First and Last Name --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             {/* <!-- First Name --> */}
@@ -134,6 +127,7 @@ export default function ContactForm() {
                 type="email"
                 className=""
                 id="inputEmail"
+                value={formState.emailAddress}
                 aria-describedby="emailHelp"
                 onChange={handleInput}
                 name="emailAddress"
@@ -151,6 +145,7 @@ export default function ContactForm() {
                 type="phonenumber"
                 className=""
                 id="phoneNumber"
+                value={formState.phNum}
                 onChange={handleInput}
                 name="phNum"
               />
@@ -190,6 +185,7 @@ export default function ContactForm() {
                 type="message"
                 className=" w-full"
                 id="message"
+                value={formState.message}
                 name="message"
                 onChange={handleInput}
                 required
