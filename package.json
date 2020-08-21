@@ -2,7 +2,7 @@
   "name": "portfolio-react",
   "version": "1.0.0",
   "description": "",
-  "main": "servermongo.js",
+  "main": "server.js",
   "dependencies": {
     "autoprefixer": "^9.8.0",
     "concurrently": "^5.3.0",
