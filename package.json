@@ -10,10 +10,6 @@
     "mongojs": "^3.1.0",
     "mongoose": "^5.9.29",
     "postcss-cli": "^7.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {},
