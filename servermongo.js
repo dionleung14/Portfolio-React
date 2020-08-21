@@ -1,5 +1,7 @@
 const express = require(`express`);
 const mongojs = require("mongojs");
+const mongoose = require("mongoose");
+// const { Mongoose, MongooseDocument } = require("mongoose");
 // const routes = require("./routes");
 // const { data } = require("autoprefixer");
 
@@ -9,6 +11,9 @@ const PORT = process.env.PORT || 4000;
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/porfolio", {
 //   useNewUrlParser: true,
 // });
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/portfolio";
+mongoose.connect(MONGODB_URI);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
