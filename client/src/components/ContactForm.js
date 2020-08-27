@@ -1,16 +1,40 @@
 import React, { useState } from "react";
 import FirstHeader from "./FirstHeader";
+import API from "../utils/API";
 
 export default function ContactForm() {
+  const logged = () => {
+    console.log("completed");
+  };
+
   const handleSubmission = (event) => {
     event.preventDefault();
     let contactMethodCheck = Object.values(contactMethodState);
     if (contactMethodCheck.includes(true)) {
+      let { call, email, text } = contactMethodState;
+      let {
+        firstName,
+        lastName,
+        emailAddress,
+        phNum,
+        subject,
+        message,
+      } = formState;
       let contactFormFilled = {
-        formState,
-        contactMethodState,
+        firstName,
+        lastName,
+        emailAddress,
+        phNum,
+        subject,
+        message,
+        call,
+        email,
+        text,
       };
-      // send it to a database
+      API.submitMessage(contactFormFilled).then(
+        (res) => logged()
+        // .catch((err) => console.log(err))
+      );
       console.log(contactFormFilled);
     } else {
       alert("Please select a method for me to reach you");
@@ -20,9 +44,9 @@ export default function ContactForm() {
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
-    email: "",
-    phNum: 0,
-    subject: "",
+    emailAddress: "",
+    phNum: "",
+    subject: "Networking",
     message: "",
   });
 
@@ -65,14 +89,6 @@ export default function ContactForm() {
           id="contact-form"
           onSubmit={handleSubmission}
         >
-          {/* <input
-            type="text"
-            value={inputName.inputField}
-            onChange={handleInput}
-          />
-          <h1>Text being typed: {inputName.inputField}</h1> */}
-
-          {/* <form> */}
           {/* <!-- First and Last Name --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
             {/* <!-- First Name --> */}
@@ -111,9 +127,10 @@ export default function ContactForm() {
                 type="email"
                 className=""
                 id="inputEmail"
+                value={formState.emailAddress}
                 aria-describedby="emailHelp"
                 onChange={handleInput}
-                name="email"
+                name="emailAddress"
                 required
               />
               <br />
@@ -128,6 +145,7 @@ export default function ContactForm() {
                 type="phonenumber"
                 className=""
                 id="phoneNumber"
+                value={formState.phNum}
                 onChange={handleInput}
                 name="phNum"
               />
@@ -167,6 +185,7 @@ export default function ContactForm() {
                 type="message"
                 className=" w-full"
                 id="message"
+                value={formState.message}
                 name="message"
                 onChange={handleInput}
                 required
