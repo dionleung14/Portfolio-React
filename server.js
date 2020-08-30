@@ -46,8 +46,6 @@ app.get("/all", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  // console.log(req.body);
-  // console.log(res);
   db.contacts.insert(
     {
       // hello: req.body.test,
