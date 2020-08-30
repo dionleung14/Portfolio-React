@@ -1,2 +1,3 @@
 node_modules
 "start": "cd client && npm run watch:css && react-scripts start",
+.env

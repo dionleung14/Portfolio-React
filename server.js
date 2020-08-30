@@ -1,6 +1,8 @@
 const express = require(`express`);
 const mongojs = require("mongojs");
 const mongoose = require("mongoose");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 // const { Mongoose, MongooseDocument } = require("mongoose");
 // const routes = require("./routes");
 // const { data } = require("autoprefixer");
@@ -69,6 +71,50 @@ app.post("/submit", (req, res) => {
     }
   );
   // );
+});
+
+app.post("/email", (req, res) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      // user: "no-reply@gmail.com",
+      // Need to create a dummy email account to use here
+      // find out how to protect them in process.env?
+      user: process.env.EMAIL,
+      // pass: "testpassword",
+      pass: process.env.PASSWORD,
+    },
+  });
+  const mailOptions = {
+    from: `${req.body.emailAddress}`,
+    to: "kungfumastah.dion@gmail.com",
+    subject: `Message from portfolio: ${req.body.subject}`,
+    text: `Here is a message from your portfolio!
+    From: ${req.body.firstName} ${
+      req.body.lastName ? req.body.lastName : "Doe"
+    } \n
+    Email: ${req.body.emailAddress} \n
+    Subject: ${req.body.subject} \n
+    Message: ${req.body.message} \n
+    Phone number: ${
+      req.body.phNum ? req.body.phNum : "no return number left"
+    } \n
+    Contact method(s): email? ${req.body.email ? "Yes" : "No"}; call? ${
+      req.body.call ? "Yes" : "No"
+    }; text? ${req.body.text ? "Yes" : "No"} \n
+    Received at: ${Date(req.body.date)}
+    `,
+    // replyTo: `${req.body.emailAddress}`,
+  };
+  transporter.sendMail(mailOptions, function (err, res) {
+    if (err) {
+      console.error("there was an error: ", err);
+    } else {
+      console.log("here is the res: ", res);
+    }
+  });
+  // res.send("email sent!");
+  res.send(req.body);
 });
 
 app.listen(PORT, () => {

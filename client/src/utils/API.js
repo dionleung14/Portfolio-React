@@ -21,4 +21,7 @@ export default {
   submitMessage: function (messageData) {
     return axios.post("/submit", messageData);
   },
+  submitEmail: function (messageData) {
+    return axios.post("/email", messageData);
+  },
 };

@@ -6,9 +6,11 @@
   "dependencies": {
     "autoprefixer": "^9.8.0",
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongojs": "^3.1.0",
     "mongoose": "^5.9.29",
+    "nodemailer": "^6.4.11",
     "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.4.6"
   },
