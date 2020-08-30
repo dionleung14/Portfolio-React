@@ -36,6 +36,19 @@ export default function ContactForm() {
         // .catch((err) => console.log(err))
       );
       console.log(contactFormFilled);
+      setFormState({
+        firstName: "",
+        lastName: "",
+        emailAddress: "",
+        phNum: "",
+        subject: "Networking",
+        message: "",
+      });
+      setContactMethodState({
+        email: true,
+        call: false,
+        text: false,
+      });
     } else {
       alert("Please select a method for me to reach you");
     }
