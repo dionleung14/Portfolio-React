@@ -7,7 +7,54 @@ export default function ContactForm() {
     console.log("completed");
   };
 
-  const handleSubmission = (event) => {
+  // const handleSubmission = (event) => {
+  //   event.preventDefault();
+  //   let contactMethodCheck = Object.values(contactMethodState);
+  //   if (contactMethodCheck.includes(true)) {
+  //     let { call, email, text } = contactMethodState;
+  //     let {
+  //       firstName,
+  //       lastName,
+  //       emailAddress,
+  //       phNum,
+  //       subject,
+  //       message,
+  //     } = formState;
+  //     let contactFormFilled = {
+  //       firstName,
+  //       lastName,
+  //       emailAddress,
+  //       phNum,
+  //       subject,
+  //       message,
+  //       call,
+  //       email,
+  //       text,
+  //     };
+  //     API.submitMessage(contactFormFilled).then(
+  //       (res) => logged()
+  //       // .catch((err) => console.log(err))
+  //     );
+  //     console.log(contactFormFilled);
+  //     setFormState({
+  //       firstName: "",
+  //       lastName: "",
+  //       emailAddress: "",
+  //       phNum: "",
+  //       subject: "Networking",
+  //       message: "",
+  //     });
+  //     setContactMethodState({
+  //       email: true,
+  //       call: false,
+  //       text: false,
+  //     });
+  //   } else {
+  //     alert("Please select a method for me to reach you");
+  //   }
+  // };
+
+  const handleNodeEmail = (event) => {
     event.preventDefault();
     let contactMethodCheck = Object.values(contactMethodState);
     if (contactMethodCheck.includes(true)) {
@@ -31,24 +78,24 @@ export default function ContactForm() {
         email,
         text,
       };
-      API.submitMessage(contactFormFilled).then(
-        (res) => logged()
+      API.submitEmail(contactFormFilled).then(
+        (res) => console.log(res)
         // .catch((err) => console.log(err))
       );
-      console.log(contactFormFilled);
-      setFormState({
-        firstName: "",
-        lastName: "",
-        emailAddress: "",
-        phNum: "",
-        subject: "Networking",
-        message: "",
-      });
-      setContactMethodState({
-        email: true,
-        call: false,
-        text: false,
-      });
+      // console.log(contactFormFilled);
+      // setFormState({
+      //   firstName: "",
+      //   lastName: "",
+      //   emailAddress: "",
+      //   phNum: "",
+      //   subject: "Networking",
+      //   message: "",
+      // });
+      // setContactMethodState({
+      //   email: true,
+      //   call: false,
+      //   text: false,
+      // });
     } else {
       alert("Please select a method for me to reach you");
     }
@@ -100,7 +147,7 @@ export default function ContactForm() {
         <form
           className="text-center"
           id="contact-form"
-          onSubmit={handleSubmission}
+          onSubmit={handleNodeEmail}
         >
           {/* <!-- First and Last Name --> */}
           <div className="flex items-center justify-around border-white border-2 px-6 py-12">
